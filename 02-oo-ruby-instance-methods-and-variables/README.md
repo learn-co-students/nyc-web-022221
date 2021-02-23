@@ -14,7 +14,7 @@
 - $global_vars -->
 
 ## Analogy time 
-We no longer create a hash every single time we want to create a dog object. Instead, we created a blueprint (the `Superhero class`) for Ruby to do the job for us. For this lecture imagine Ruby as an elf who assembles together gifts for kids:
+We no longer create a hash every single time we want to create a superhero object. Instead, we created a blueprint (the `Superhero class`) for Ruby to do the job for us. For this lecture imagine Ruby as an elf who assembles together gifts for kids:
 
 <img src="buddy-the-elf.jpg" height="200px" width="auto" style="display:inline"  alt="a still from the Elf movie picturing Will Ferrel as an assembly line elf preparing toys for kids">
 
