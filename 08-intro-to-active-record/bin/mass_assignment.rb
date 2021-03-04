@@ -2,15 +2,27 @@ require_relative "../config/environment"
 
 
 class Clown
-  attr_accessor :name, :age, :fear, :skill
+  attr_accessor :name, :age, :fear, :skill, :location
+
+  ## example of a setter method
+  ## key (skill=) 
+  ## value (new_skill)
+  # def skill=(new_skill)
+  #   @skill = new_skill
+  # end
 
   @@all = []
 
-  def initialize(name, age, fear, skill)
-    @name = name
-    @age = age
-    @fear = fear
-    @skill = skill
+  def initialize(args_hash)
+    args_hash.each do |key, value|
+
+      binding.pry
+      self.send("#{key}=", value)
+    end
+    # @name = args_hash[:name]
+    # @age = args_hash[:age]
+    # @fear = args_hash[:fear]
+    # @skill = args_hash[:skill]
 
     @@all << self
   end
@@ -22,7 +34,10 @@ class Clown
 end
 
 
-krusty = Clown.new("Krusty", 42, "chainsaws", "balloons")
+krusty = Clown.new({skill: "balloons", name: "Krusty", age: 42, fear: "chainsaws", location: ""})
+
+
+# krusty = Clown.new("Krusty", 42, "chainsaws", "balloons")
 
 
 

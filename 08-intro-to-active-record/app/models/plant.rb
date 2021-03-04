@@ -1,4 +1,4 @@
-class Plant
+class Plant < ActiveRecord::Base
 
 end
 
