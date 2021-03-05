@@ -12,21 +12,47 @@ Active Record Relationships
 ### Outline
 * Review what we covered so far:
     - What is AR?
+      - gem
+      - methods to interact with database
+      - bridge between ruby and database
     - What does AR do?
+      - methods to interact with database
+      - bridge between ruby and database
     - When to use SQL and when AR?
+      - in ruby: AR
+      - in database: SQL
     - What's the difference between a model and a table?
+      - table: different columns, data
+      - model: class -> instance
     - Can a database have many tables?
+      - YES!
     - What is meant by migration?
+      - change to the database (add column, create table, drop table)
     - Naming conventions in Ruby and AR
+      - class name should be singular
+      - table name should be plural
     - Project file structure
     - What is `rake`?
+      - use ruby code in terminal
+      - let's us run scripts/tasks
+      - gem
     - What is `rake console`?
+      - open up pry environment
+      - rake task/script
     - Difference between `.new` and `.create`
+      - `.new`: only creating object still need to use `.save` to save object to database
+      - `.create`: creates and saves the new object
     - What is CRUD and what are the examples of methods for each letter?
+      - create: `.create` or `.new`
+      - read: `.all`
+      - update: `.update`
+      - delete: `.destroy`
 
 ### Setting up relationships
 
 This is our domain model:
+
+<img src="erd.jpg" style="display:inline"  alt="many to many relationship between plant and person">
 
 ```
 Plant —————< PlantParenthood >————————— Parent

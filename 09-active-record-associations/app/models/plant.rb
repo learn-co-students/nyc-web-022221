@@ -1,6 +1,24 @@
 class Plant < ActiveRecord::Base
+  has_many :plant_parenthoods
+  has_many :people, through: :plant_parenthoods
 
+  # def plant_parenthoods
+  #   PlantParenthood.all.select {|pp| pp.plant == self}
+  # end
+
+  # def people
+  #     plant_parenthoods.map{|pp| pp.plant}
+  # end
+
+  def custom_method
+    # code goes here
+    self.people.each do |person|
+      puts person.name
+      puts person.plants.count
+    end
+  end
 end
+
 
 
 
