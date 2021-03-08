@@ -18,8 +18,8 @@ sean = User.create(username: "sean", password: "abc123")
 end
 
 p1 = Post.create(user_id: eric.id, category_id: Category.all.sample.id, title: "Eric's First Post", body: Faker::Lorem.paragraph)
-p1 = Post.create(user_id: eric.id, category_id: Category.all.sample.id, title: "Eric's Second Post", body: Faker::Lorem.paragraph)
-p1 = Post.create(user_id: toni.id, category_id: Category.all.sample.id, title: "Toni's First Post", body: Faker::Lorem.paragraph)
+p2 = Post.create(user_id: eric.id, category_id: Category.all.sample.id, title: "Eric's Second Post", body: Faker::Lorem.paragraph)
+p3 = Post.create(user_id: toni.id, category_id: Category.all.sample.id, title: "Toni's First Post", body: Faker::Lorem.paragraph)
 
 
 

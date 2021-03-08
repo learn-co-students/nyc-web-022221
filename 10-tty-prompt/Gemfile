@@ -13,3 +13,4 @@ gem 'colorize'
 
 # The gems I added.
 gem 'faker'
+gem 'tty-prompt'
