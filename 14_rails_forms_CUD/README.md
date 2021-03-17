@@ -19,21 +19,20 @@ snacks ratings - 11
 snacks
 
 
-
 ## Outline
 - [✅] Create our model using `rails g model` 
 - [✅] Create our controller using  `rails g controller` 
 - [✅] Work on CRUD, focus on routes and ActionView helpers
-  - [] Read
+  - [✅] Read
     - [✅] Views -> Index, Show, 
-    - [ ] Read views continued -> New, Edit, 
+    - [✅] Read views continued -> New, Edit, 
     - [✅] Review `link_to` 
     - [✅] Path helpers
-  - [] Create
-    - [] HTML form vs `form_tag` vs `form_for`
-    - [] Strong Params
-  - [ ] Update
-    - [ ] reusable `form_for`
+  - [✅] Create
+    - [✅] HTML form vs `form_tag` vs `form_for`
+    - [✅] Strong Params
+  - [✅] Update
+    - [✅] reusable `form_for`
   - [ ] Delete
     - `button_to`
 

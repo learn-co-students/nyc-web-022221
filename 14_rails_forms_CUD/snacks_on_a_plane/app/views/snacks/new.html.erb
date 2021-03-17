@@ -1,0 +1,28 @@
+<h1>Create a Snack</h1>
+
+
+<%= form_for @snack do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :flavor_profile %>
+  <%= f.text_field :flavor_profile %>
+  <br>
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+  <br>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<%# form_for @snack %>
+<%# form_tag url: "/snacks/:id" %>
+
+<%# form_with model: @snack %>
+<%# form_with url: "/snacks/:id" %>
+
+
+
+
