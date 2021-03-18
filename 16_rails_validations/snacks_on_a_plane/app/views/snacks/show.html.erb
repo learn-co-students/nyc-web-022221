@@ -1,0 +1,19 @@
+<h1>Snack Show Page</h1>
+
+
+<h3><%= @snack.name %></h3>
+<p><%= @snack.brand %></p>
+<p><%= @snack.flavor_profile %></p>
+
+                             <%# "/snacks/:id" %>
+<%= button_to "DELTE SNACK", snack_path(@snack), method: :delete %>
+
+
+<%= link_to "INDEX", snacks_path %>
+
+
+<%# link_to "text On Page", "someUrlPath" %>
+<%# <a href=""></a> = default request is GET %>
+
+<%# button_to "text On Page", "someUrlPath" %>
+<%# <form action=""></form> = default request is POST %>

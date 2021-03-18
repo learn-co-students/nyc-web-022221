@@ -1,0 +1,21 @@
+<h1>New Review</h1>
+
+<%= form_for @user_snack do |f| %>
+  <%= f.label :review %>
+  <%= f.text_field :review %>
+
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+
+  <%= f.label :user_id %>
+  <%= f.collection_select :user_id, @users, :id, :name  %>
+
+  <%= f.label :snack_id %>
+  <%= f.collection_select :snack_id, @snacks, :id, :name %>
+  
+
+  <%= f.submit %>
+
+<% end %>
+
+<%# params {review: "sweet", rating: 6, user_id: 7, snack_id: 9} %>

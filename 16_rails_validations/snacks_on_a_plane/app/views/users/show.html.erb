@@ -1,0 +1,21 @@
+<h1>User Show</h1>
+
+<h3><%= @user.name %></h3>
+<p><%= @user.motto %></p>
+
+
+<marquee 	scrolldelay=60 direction="right">
+  <img src="<%= @user.img_url %>" alt="<%= @user.name %>">
+</marquee>
+
+
+<h5>My Reviews</h5>
+<% @user.user_snacks.each do |user_snack| %>
+  <p><%= user_snack.snack.name %></p>
+  <p><%= user_snack.review %></p>
+  <p>Rating: <%= user_snack.rating %></p>
+  <hr>
+<% end %>
+
+
+
