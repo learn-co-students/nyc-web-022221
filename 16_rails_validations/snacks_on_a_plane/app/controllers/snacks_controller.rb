@@ -19,10 +19,14 @@ class SnacksController < ApplicationController
   end 
   
   def create 
-    # @snack = Snack.create(snack_params(:name, :brand, :rating, :flavor_profile))
     @snack = Snack.create(snack_params)
-    
-    redirect_to snack_path(@snack.id)
+
+    if @snack.valid?
+      redirect_to snack_path(@snack.id)
+    else 
+      flash[:errors] = @snack.errors.full_messages 
+      redirect_to new_snack_path
+    end
   end 
   
   def edit 
@@ -34,7 +38,13 @@ class SnacksController < ApplicationController
   def udpate 
     # @snack = Snack.find(params[:id])
     # @snack.update(snack_params(:name, :brand, :flavor_profile))
-    @snack.update(snack_params)
+   
+    if @snack.update(snack_params)
+      redirect_to snack_path(@snack.id)
+    else 
+      flash[:errors] = @snack.errors.full_messages 
+      redirect_to edit_snack_path
+    end
     
     redirect_to snack_path(@snack)
   end 

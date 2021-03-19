@@ -1,3 +1,10 @@
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p style="color: red;"><%= error %></p>
+  <% end %>
+<% end %>
+
 <%= form_for @snack do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
