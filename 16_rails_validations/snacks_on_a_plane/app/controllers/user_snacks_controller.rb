@@ -7,9 +7,18 @@ class UserSnacksController < ApplicationController
   end 
 
   def create 
-    user_snack = UserSnack.create(user_snack_params)
+    @user_snack = UserSnack.create(user_snack_params)
+    # @user_snack = UserSnack.new(user_snack_params)
 
-    redirect_to user_path(user_snack.user)
+      #  @user_snack.save
+    if @user_snack.valid?
+      redirect_to user_path(@user_snack.user)
+    else 
+      flash[:my_errors] = @user_snack.errors.full_messages
+
+      redirect_to new_user_snack_path
+    end
+
   end 
 
   private 
