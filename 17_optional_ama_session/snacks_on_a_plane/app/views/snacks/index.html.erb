@@ -1,0 +1,11 @@
+<h1>Snack Index Page</h1>
+
+
+<% @snacks.each do |snack| %>  
+  <%= render "scream" %>
+  <%= render "scream" %>
+  <%= render "scream" %>
+  <p><%= link_to snack.name, snack_path(snack.id)  %></p>
+                              
+
+<% end %>

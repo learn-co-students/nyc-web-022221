@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
+  resources :friendships
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
-  # resources :user_snacks, only: [:new, :create]
-  # resources :users, only: [:index, :show]
-  # resources :snacks
 
+  resources :user_snacks, only: [:new, :create]
+  resources :users, only: [:index, :show]
+  resources :snacks
 
-  resources :users do
+  resources :users do 
     resources :snacks
-  end
+  end 
 
   # get '/snacks', to: 'snacks#index', as: 'snacks'
   # get '/snacks/new', to: 'snacks#new', as: 'new_snack'
