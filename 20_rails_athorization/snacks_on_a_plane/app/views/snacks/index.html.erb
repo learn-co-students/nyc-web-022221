@@ -1,0 +1,12 @@
+  <% if flash[:message] %>
+    <p><%= flash[:message] %></p>
+  <% end %>
+
+<div class="index-container">
+  <% @snacks.each do |snack| %>
+    <div class="index-card">
+      <p><%= link_to snack.name, snack_path(snack) %></p>
+      <img class='snack-index-img' src="<%= snack.img_url %>" alt="<%= snack.name %>">
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,31 @@
+
+<div class="form-container">
+  <% if flash[:my_errors] %>
+    <% flash[:my_errors].each do |error| %>
+      <p style="color: red;"><%= error %></p>
+    <% end %>
+  <% end %>
+  <h1>New Review</h1>
+
+  <%= form_for @user_snack, html: {class: 'form-basic'} do |f| %>
+    <div class='form-input'>
+      <%= f.label :review %>
+      <%= f.text_field :review %>
+    </div>
+
+    <div class='form-input'>
+      <%= f.label :rating %>
+      <%= f.number_field :rating %>
+    </div>
+
+    <div class='form-input'>
+      <%= f.label :snack_id %>
+      <%= f.collection_select :snack_id, @snacks, :id, :name %>
+    </div>
+
+    <%= f.submit %>
+
+  <% end %>
+</div>
+
+<%# params {review: "sweet", rating: 6, user_id: 7, snack_id: 9} %>

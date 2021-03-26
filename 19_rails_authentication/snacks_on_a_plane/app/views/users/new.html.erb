@@ -1,0 +1,38 @@
+<div class="form-container">
+  <h1>Signup</h1>
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <p style="color: red;"><%= error %></p>
+    <% end %>
+  <% end %>
+
+  <%= form_for @user, html: {class: 'form-basic'} do |f| %>
+    <div class='form-input'>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class='form-input'>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+    </div>
+
+    <div class='form-input'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class='form-input'>
+      <%= f.label :motto %>
+      <%= f.text_field :motto %>
+    </div>
+    
+    <div class='form-input'>
+      <%= f.label :img_url %>
+      <%= f.text_field :img_url %>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</div>

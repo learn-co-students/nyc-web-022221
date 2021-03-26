@@ -1,0 +1,46 @@
+
+<div class="show-container">
+  <div class="user-info">
+    <div class="info-header">
+        <img class="show-img" src="<%= @user.img_url %>" alt="<%= @user.name %>">
+      <h3><%= @user.name %></h3>
+    </div> 
+    <p><%= @user.motto %></p>
+
+
+  </div>
+
+  <div class="followers-list"> 
+    <h3>Followers</h3>
+    <% @user.followers.each do |user|%>
+      <p><%= link_to user.name, user %> <%= user.average_snack_rating %></p>
+    <% end %>
+  </div>
+
+  <div class="following-list">
+    <h3>Following</h3>
+    <% @user.followees.each do |user|%>
+      <p><%= link_to user.name, user %> <%= user.average_snack_rating %></p>
+    <% end %>
+  </div>
+
+  <div class="review-list"> 
+    <h3>My Reviews</h3>
+    <% @user.user_snacks.each do |user_snack| %>
+      <p><%= link_to user_snack.snack.name, user_snack.snack %></p>
+      <p><%= user_snack.review %></p>
+      <p>Rating: <%= user_snack.rating %></p>
+      <hr>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
