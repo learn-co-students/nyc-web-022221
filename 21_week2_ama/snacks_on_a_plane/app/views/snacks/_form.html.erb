@@ -1,0 +1,26 @@
+
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p style="color: red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @snack, html: {class: 'form-basic'} do |f| %>
+  <div class='form-input'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class='form-input'>
+    <%= f.label :flavor_profile %>
+    <%= f.text_field :flavor_profile %>
+  </div>
+
+  <div class='form-input'>
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+  </div>
+  
+  <%= f.submit %>
+<% end %>

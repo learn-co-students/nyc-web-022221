@@ -1,0 +1,73 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// SHOW PAGE
+
+.show-img {
+  max-width: 80px;
+  border-radius: 100%;
+  
+}
+
+.show-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 90vh;
+  max-width: 97%;
+  margin: 0px auto;
+}
+
+.user-info { 
+  grid-area: 1 / 1 / 7 / 9; 
+  // border: 1px solid black;
+  background-color: lightgray;
+  border-radius: 10px;
+  margin: 3px;
+  text-align: center;
+}
+.info-header {
+  height: 100px;
+  padding: 5px;
+  text-align: center;
+}
+
+.info-header h3 {
+  // display: inline-block;
+  // line-height: 25%;
+  margin: 0;
+  padding: 0;
+}
+
+.followers-list { 
+  grid-area: 7 / 1 / 13 / 5; 
+  overflow-y: scroll; 
+  text-align: center;
+  background-color: lightgray;
+  border-radius: 10px;
+  margin: 3px;
+}
+.following-list { 
+  grid-area: 7 / 5 / 13 / 9;
+  overflow-y: scroll; 
+  text-align: center;
+  background-color: lightgray;
+  border-radius: 10px;
+  margin: 3px;
+}
+.review-list { 
+  grid-area: 1 / 9 / 13 / 13; 
+  background-color: lightgray;
+  border-radius: 10px;
+  margin: 3px;
+  padding: 15px;
+  overflow-y: scroll;
+}
+
+.review-list h3 {
+  margin: 0;
+  text-align: center;
+}

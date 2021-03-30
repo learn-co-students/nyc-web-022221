@@ -21,6 +21,7 @@ food_prof = ["spicy", "sweet", "salty"]
 
 url = "https://api.spoonacular.com/recipes/complexSearch?type=snack&number=20&apiKey=#{ENV['API_KEY']}"
 
+
 res = RestClient.get(url)
 res_body = res.body 
 ruby_hash = JSON.parse(res_body)

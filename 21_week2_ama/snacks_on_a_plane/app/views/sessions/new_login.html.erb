@@ -1,0 +1,17 @@
+<div class="form-container">
+  <h1>Login</h1>
+
+  <%= form_for :session, url: "/login", html: {class: 'form-basic'} do |f| %>
+    <div class='form-input'>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class='form-input'>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</div>

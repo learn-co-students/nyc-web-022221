@@ -1,0 +1,26 @@
+<% if session[:page_views] <= 3 %>
+
+  <h3 style="color: green;">You have <%= 3 - session[:page_views].to_i %> views left</h3>
+
+  <h1><%= @snack.name %></h1>
+  <h4><%= @snack.brand %></h4>
+  <p><%= @snack.flavor_profile %></p>
+
+  <marquee scrolldelay=60 scrollamount=10 direction="right">
+    <img src="<%= @snack.img_url %>" alt="<%= @snack.name %>">
+  </marquee>
+
+                              <%# "/snacks/:id" %>
+  <%= button_to "DELTE SNACK", snack_path(@snack), method: :delete %>
+
+
+  <%= link_to "INDEX", snacks_path %>
+
+  <% else %>
+    <h1>SOME AD</h1>
+    <%= button_to "super promise I watched this",  reset_path, method: :delete %>
+
+    <iframe width="764" height="573" src="https://www.youtube.com/embed/tHQufUqtWcc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <% end %>
+
+
