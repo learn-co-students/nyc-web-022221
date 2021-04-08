@@ -13,14 +13,14 @@ const traveler = {
         link: "https://youtu.be/Fa_I68L_APY",
         description: "I saw this beautiful green frog resting on a leaf!"
       },
-      {
-        id: 2,
-        travelerId: 1,
-        species: "monkey",
-        photo: "pics/monkey.jpg",
-        link: "https://youtu.be/dy-u0voqixQ",
-        description: "I was so impressed by the monkey's fantastic leaps!"
-      },
+      // {
+      //   id: 2,
+      //   travelerId: 1,
+      //   species: "monkey",
+      //   photo: "pics/monkey.jpg",
+      //   link: "https://youtu.be/dy-u0voqixQ",
+      //   description: "I was so impressed by the monkey's fantastic leaps!"
+      // },
       {
         id: 3,
         travelerId: 1,
