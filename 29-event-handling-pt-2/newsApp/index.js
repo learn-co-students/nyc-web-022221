@@ -136,6 +136,7 @@ function handleFormSubmit(event) {
     const authorInput = event.target.author.value
     const descriptionInput = event.target.description.value
     const imageInput = event.target.url.value
+    debugger
 
     const lastIndex = articlesArray.length - 1
     const lastId = articlesArray[lastIndex].id
@@ -164,3 +165,4 @@ form.addEventListener('submit', handleFormSubmit)
 
 /****** APP INIT ******/
 renderAllCards()
+deleteAdvertisment()
