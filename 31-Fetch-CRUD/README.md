@@ -16,10 +16,10 @@ ______
 - **Communicating with the Server**
 
 
-POST /articles
-GET /articles
-DELETE /articles/:id
-PATCH /articles/:id
+- POST /articles
+- GET /articles
+- DELETE /articles/:id
+- PATCH /articles/:id
 
 ______
 
