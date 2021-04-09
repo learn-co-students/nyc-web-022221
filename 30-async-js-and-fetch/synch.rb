@@ -4,9 +4,14 @@ require "pry"
 # https://randomfox.ca/
 # https://randomfox.ca/floof/
 
-
-puts "Hello World!"
-puts "brb, gonna go sleep for a sec"
+# puts "Hello World!"
+# puts "brb, gonna go sleep for a sec"
 # sleep(5)
 
-puts "What a nice cat nap that was!"
+# puts "What a nice cat nap that was!"
+
+response = RestClient.get("https://randomfox.ca/floof/")
+data = JSON.parse(response)
+puts data['image']
+
+# binding.pry
