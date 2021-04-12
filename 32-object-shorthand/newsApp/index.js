@@ -73,13 +73,22 @@ darkModeToggle.addEventListener('click', function () {
 form.addEventListener('submit', function (event) {
     event.preventDefault() // ALWAYS INCLUDE
 
-    const newArticleObj = {
-        title: event.target.title.value,
-        author: event.target.author.value,
-        description: event.target.description.value,
-        image: event.target.url.value,
-        likes: 0,
-    }
+    const title = event.target.title.value
+    const author = event.target.author.value
+    const description = event.target.description.value
+    const image = event.target.url.value
+
+
+    // const newArticleObj = { title, author, description, image, likes: 0 }
+
+    // const newArticleObj = {
+    //     title: event.target.title.value,
+    //     author: event.target.author.value,
+    //     description: event.target.description.value,
+    //     image: event.target.url.value,
+    //     likes: 0,
+    // }
+    console.log(newArticleObj)
 
     fetch('http://localhost:3000/articles', {
         method: 'POST',
@@ -87,7 +96,7 @@ form.addEventListener('submit', function (event) {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
-        body: JSON.stringify(newArticleObj)
+        body: JSON.stringify({ title, author, description, image, likes: 0 })
     })
         .then(response => response.json())
         .then(newArticleObject => {
