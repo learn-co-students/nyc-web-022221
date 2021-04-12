@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 33
+      "likes": 64
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 14
+      "likes": 24
     },
     {
       "id": 3,
@@ -47,6 +47,24 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "Star Wars Legos",
+      "image": "https://www.lego.com/cdn/cs/set/assets/blt892f38a4fd55edeb/75257.jpg",
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "name": "SW LEGOS",
+      "image": "https://www.lego.com/cdn/cs/set/assets/blt25ff8d2afe2e0506/75288_alt1.jpg?fit=bounds&format=jpg&quality=80&width=528&height=528&dpr=1",
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "name": "Dino 2",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/91DCcqMAlzL._AC_SL1500_.jpg",
+      "likes": 0,
+      "id": 11
     }
   ]
 }
