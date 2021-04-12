@@ -56,9 +56,18 @@ function renderOneCard(articleObj) {
 
 
 function renderAllCards() {
-    articlesArray.forEach(function (articleObject) {
-        renderOneCard(articleObject)
-    })
+
+    fetch('http://localhost:3000/articles')
+        .then(response => response.json())
+        .then(articlesArr => {
+            articlesArr.forEach(articleObject => {
+                renderOneCard(articleObject)
+            })
+        })
+
+    // articlesArray.forEach(function (articleObject) {
+    //     renderOneCard(articleObject)
+    // })
 }
 
 
@@ -72,8 +81,8 @@ darkModeToggle.addEventListener('click', function () {
 form.addEventListener('submit', function (event) {
     event.preventDefault() // ALWAYS INCLUDE
 
-    const lastIndex = articlesArray.length - 1
-    const lastId = articlesArray[lastIndex].id
+    // const lastIndex = articlesArray.length - 1
+    // const lastId = articlesArray[lastIndex].id
 
     const newArticleObj = {
         title: event.target.title.value,
@@ -81,11 +90,23 @@ form.addEventListener('submit', function (event) {
         description: event.target.description.value,
         image: event.target.url.value,
         likes: 0,
-        id: lastId + 1
     }
 
-    articlesArray.push(newArticleObj)
-    renderOneCard(newArticleObj) // DOM Manipulation
+
+    fetch('http://localhost:3000/articles', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(newArticleObj)
+    })
+        .then(response => response.json())
+        .then(newArticleObject => {
+            renderOneCard(newArticleObject)
+        })
+
+    // renderOneCard(newArticleObj) // DOM Manipulation
     form.reset()
 })
 
@@ -101,17 +122,51 @@ collectionUl.addEventListener('click', event => {
     // determine when I'm clicking on the element/s that I care about
     if (event.target.className === 'delete-button') {
         const cardDiv = event.target.closest('div.card')
-        cardDiv.remove()
+        cardDiv.remove() // optimisitc rendering
+
+        fetch(`http://localhost:3000/articles/${cardDiv.dataset.id}`, {
+            method: 'DELETE'
+        })
+
+        // WITH PESSIMISTIC RENDERING + ERROR HANDLING 
+        // fetch(`http://localhost:3000/articles/${cardDiv.dataset.id}`, {
+        //     method: 'DELETE'
+        // })
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw Error(`The error failed because: ${response.statusText}`)
+        //         }
+        //         return response.json()
+        //     })
+        //     .then(() => {
+        //         cardDiv.remove() // pessimistic rendering
+        //     })
+        //     .catch(error => {
+        //         alert(error)
+        //     })
+
     }
     else if (event.target.matches('.like-button')) {
         // const likesPTag = event.target.previousElementSibling
         // const currLikes = parseInt(likesPTag.textContent)
         // likesPTag.textContent = `${currLikes + 1} Likes`
-        console.dir(event.target)
+        // console.dir(event.target)
         const cardDiv = event.target.closest('div.card')
         const likesPTag = cardDiv.querySelector('p.react-count')
         const currLikes = parseInt(likesPTag.textContent)
-        likesPTag.textContent = `${currLikes + 1} Likes`
+        // likesPTag.textContent = `${currLikes + 1} Likes` // optimistic rendering
+
+        fetch(`http://localhost:3000/articles/${cardDiv.dataset.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ likes: currLikes + 1 })
+        })
+            .then(response => response.json())
+            .then(data => {
+                likesPTag.textContent = `${data.likes} Likes` // pessimistic rendering
+            })
     }
 })
 
