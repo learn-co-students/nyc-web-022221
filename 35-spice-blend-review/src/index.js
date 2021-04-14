@@ -1,4 +1,5 @@
 // write your code here
+const updateTitleForm = document.querySelector('form#update-form')
 
 
 fetch('http://localhost:3000/spiceblends/1')
@@ -23,3 +24,23 @@ fetch('http://localhost:3000/spiceblends/1')
 
 
 
+updateTitleForm.addEventListener('submit', event => {
+    event.preventDefault()
+
+    const title = event.target.title.value
+
+    console.log(title)
+
+    fetch('http://localhost:3000/spiceblends/1', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ title })
+    })
+        .then(response => response.json())
+        .then(updatedObj => {
+            const detailH2 = document.querySelector('h2.title')
+            detailH2.textContent = updatedObj.title
+        })
+})
