@@ -5,7 +5,6 @@ const updateTitleForm = document.querySelector('form#update-form')
 fetch('http://localhost:3000/spiceblends/1')
     .then(response => response.json())
     .then(spiceBlendObj => {
-        console.log(spiceBlendObj)
         const detailImg = document.querySelector('img.detail-image')
         detailImg.src = spiceBlendObj.image
 
@@ -43,4 +42,20 @@ updateTitleForm.addEventListener('submit', event => {
             const detailH2 = document.querySelector('h2.title')
             detailH2.textContent = updatedObj.title
         })
+})
+
+
+const newIngredientForm = document.querySelector('form#ingredient-form')
+
+newIngredientForm.addEventListener('submit', event => {
+    event.preventDefault()
+
+    const newIngredient = event.target.name.value
+    const li = document.createElement('li')
+    li.textContent = newIngredient
+
+    const ingredientsUl = document.querySelector('ul.ingredients-list')
+    ingredientsUl.append(li)
+
+    event.target.reset()
 })
