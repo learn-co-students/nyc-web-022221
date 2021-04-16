@@ -105,7 +105,7 @@ To help organize our code, it's useful to namespace our routes; this makes it mo
 
 > It's unlikely that you'll create multiple versions of your API for these projects, but it's a good practice to follow as a developer regardless!
 
-We want our namespaced routes for our API to look like this: `/api/v1/news`
+We want our namespaced routes for our API to look like this: `/api/v1/articles`
 
 To set up these routes, we can use the `namespace` method in our `routes.db` file:
 
@@ -115,7 +115,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :news
+      resources :articles
     end
   end
 
@@ -128,13 +128,13 @@ If you want to see the routes that this created for us, you can run:
 rails routes
 ```
 
-Next, we can create our controller for these routes. We'll have to namespace the controller as well, which means instead of making file the controller directly in the `app/controllers` folder, we have to nest it: `app/controllers/api/v1/news_controller.rb`
+Next, we can create our controller for these routes. We'll have to namespace the controller as well, which means instead of making file the controller directly in the `app/controllers` folder, we have to nest it: `app/controllers/api/v1/articles_controller.rb`
 
 We also have to namespace the classname, in a module, so that Rails can correctly resolve it:
 
 ```rb
-# app/controllers/api/v1/news_controller.rb
-class Api::V1::NewsController < ApplicationController
+# app/controllers/api/v1/articles_controller.rb
+class Api::V1::ArticlesController < ApplicationController
 end
 ```
 
