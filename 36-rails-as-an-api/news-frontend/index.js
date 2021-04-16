@@ -102,23 +102,14 @@ collectionUl.addEventListener('click', event => {
 
     if (event.target.className === 'delete-button') {
         const cardDiv = event.target.closest('div.card')
+        cardDiv.remove()
+
 
         fetch(`http://localhost:3000/articles/${cardDiv.dataset.id}`, {
             method: 'DELETE'
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw Error(`The error failed because: ${response.statusText}`)
-                }
-                return response.json()
-            })
-            .then(() => {
-                cardDiv.remove() // pessimistic rendering
-            })
-            .catch(error => {
-                alert(error)
-            })
-
+            .then(response => response.json())
+            .then(console.log)
     }
     else if (event.target.matches('.like-button')) {
         const cardDiv = event.target.closest('div.card')
@@ -134,9 +125,7 @@ collectionUl.addEventListener('click', event => {
             body: JSON.stringify({ likes: currLikes + 1 })
         })
             .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            })
+            .then(console.log)
     }
 })
 

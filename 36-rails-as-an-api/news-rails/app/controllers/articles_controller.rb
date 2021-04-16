@@ -1,18 +1,19 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
 
+  # GET /articles
   def index
     @articles = Article.all
     # render :index
     # render json: @articles
-    
+
     respond_to do |format|
-      puts format
       format.html { render :index }
       format.json { render json: @articles }
     end
   end
 
+  # GET /articles/1
   def show
     render :show
   end
