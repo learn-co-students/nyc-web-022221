@@ -3,7 +3,14 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    render :index
+    # render :index
+    # render json: @articles
+    
+    respond_to do |format|
+      puts format
+      format.html { render :index }
+      format.json { render json: @articles }
+    end
   end
 
   def show
