@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <%= image_tag @article.image, { width: 500 } %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @article.likes %>
+</p>
+
+<%= link_to "Edit", edit_article_path(@article) %> |
+<%= link_to "Back", articles_path %>
