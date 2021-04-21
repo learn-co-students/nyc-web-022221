@@ -4,7 +4,6 @@ const raffy = {
     name: "Raffy",
     age: 9,
     type: "terrier",
-    bestFriends: ["Michelle", "Louie", "Coco"]
 }
 
 const pet = {
@@ -16,6 +15,12 @@ const pet = {
 
 // Wrong way to make a copy of Raffy
 const copyOfRaffy = raffy
+
+
+
+const actualCopy = { ...raffy }
+
+const combinedObj = { ...raffy, ...pet, lovesGrass: true, chasesSquirrels: true }
 
 
 
@@ -49,6 +54,9 @@ const greenVeggies = ["spinach", "lettuce", "zucchini"]
 const notRealCopy = redVeggies
 
 
+const actualRedCopy = [...redVeggies]
+
+const combinedArr = [...redVeggies, ...greenVeggies, "pasta"]
 
 
 
@@ -92,6 +100,7 @@ const arr = [3, 5, 7]
 
 // const sum = sumThreeNums(3, 5, 7)
 
+// const sum = sumThreeNums(...arr)
 
 
 
@@ -128,17 +137,33 @@ const arr = [3, 5, 7]
  into the function
 - Must be the last paramter 
 */
-function dynamicSum(num1, num2, num3) {
-    const args = new Array(num1, num2, num3)
-    console.log(num1, num2, num3)
+function dynamicSum(...args) {
+    // const args = new Array(num1, num2, num3)
+    // console.log(num1, num2, args)
 
     return args.reduce((acc, currVal) => {
         return acc + currVal
     }, 0)
 }
 
-const sum = dynamicSum(1, 4, 5)
+const sum = dynamicSum(1, 4, 5, 8, 9, 10)
 // console.log(sum)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -155,3 +180,7 @@ const spring = {
 }
 
 
+const [num1, num2, num3, ...beef] = nums
+
+
+const { temperature, ...remainingProps } = spring
